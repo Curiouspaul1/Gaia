@@ -1,0 +1,6 @@
+__pycache__/
+.env
+gaia/
+.flaskenv
+*.env
+
