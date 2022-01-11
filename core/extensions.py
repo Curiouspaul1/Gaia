@@ -6,6 +6,6 @@ from flask_cors import CORS
 load_dotenv()
 
 
-client = pymongo.MongoClient(os.getenv('DATABASE_URI'))
+client = pymongo.MongoClient(os.getenv('DATABASE_URI'), uuidRepresentation="standard")
 cors = CORS()
 db = client.test
