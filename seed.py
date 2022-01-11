@@ -15,7 +15,7 @@ projects = []
 for card in cards_:
     try:
         obj_ = {
-            "_id": str(uuid.uuid4()),
+            '_id':str(uuid.uuid4()),
             "project_url": card.find('h3').find('a')['href'],
             "name": card.find('h3').find('a').string,
             "image_url": card.find('img')['src'],
@@ -29,5 +29,5 @@ for card in cards_:
 
 
 # print(cards_[0].find('form').get_attribute_list('action'))
-print(projects) 
+# print(projects)
 print(len(projects))

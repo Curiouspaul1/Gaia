@@ -1,6 +1,7 @@
 from . import project
 from flask import request, current_app
 from core.extensions import db
+from bson.objectid import ObjectId
 import uuid
 import datetime
 
@@ -15,12 +16,12 @@ def fetch_projects():
     }, 200
 
 
-@project.get('/')
-def fetch_project():
-    id_ = request.args.get('pid', type=str)
-    # find document
+@project.get('/<string:id_>')
+def fetch_project(id_):
+    print(id_)
     try:
-        doc_ = db.project.find_one(id_)
+        doc_ = db.projects.find_one({'_id': id_})
+        print(doc_)
         return {
             'status': 'success',
             'data': doc_
