@@ -10,7 +10,7 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = os.getenv('app-secret')
-    app.config['PROJECTS_PER_PAGE'] = 16
+    app.config['PROJECTS_PER_PAGE'] = 20
 
     cors.init_app(app)
 
