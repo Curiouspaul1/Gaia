@@ -6,6 +6,8 @@ The platform aggregates a list of projects directly involved with making a Earth
 
 ![Gaia projects section](https://imgur.com/sm5b29M.png)
 
+https://project-gaia.vercel.app/
+
 ### Contributing
 
 We're open to contributions from the general public, so make a fork, add something "cool", and send a PR our way, and we'll give it a look!.
