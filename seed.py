@@ -13,17 +13,20 @@ cards_ = soup.find_all("article", class_=re.compile('[.^post project_post item-]
 projects = []
 # dict_ = ['air','environment',]
 for card in cards_:
+    project_url = requests.get(card.find('h3').find('a')['href']).text
+    project_page = BeautifulSoup(project_url, 'html.parser')
     try:
         obj_ = {
             '_id':str(uuid.uuid4()),
+            'project_headline': project_page.find('main').find('p').string,
             "project_url": card.find('h3').find('a')['href'],
             "name": card.find('h3').find('a').string,
             "image_url": card.find('img')['src'],
             "paypal_url": card.find('form').get_attribute_list('action')[0]
         }
-        db.projects.insert_one(obj_)
+        db.project.insert_one(obj_)
         projects.append(obj_)
-    except Exception:   
+    except Exception:
         print(card, end="Has issue!")
 
 

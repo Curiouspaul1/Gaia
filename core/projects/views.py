@@ -8,7 +8,7 @@ import datetime
 @project.get('/')
 def fetch_projects():
     page_no = request.args.get('page', 1, type=int)
-    projects_ = list(db.projects.find({}))
+    projects_ = list(db.project.find({}))
     per_page = current_app.config['PROJECTS_PER_PAGE']
     return {
         'status': 'success',
@@ -20,7 +20,7 @@ def fetch_projects():
 def fetch_project(id_):
     print(id_)
     try:
-        doc_ = db.projects.find_one({'_id': id_})
+        doc_ = db.project.find_one({'_id': id_})
         print(doc_)
         return {
             'status': 'success',
