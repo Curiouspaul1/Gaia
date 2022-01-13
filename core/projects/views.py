@@ -10,6 +10,7 @@ def fetch_projects():
     page_no = request.args.get('page', 1, type=int)
     projects_ = list(db.project.find({}))
     per_page = current_app.config['PROJECTS_PER_PAGE']
+    print(projects_[(per_page*page_no)-per_page:(per_page*page_no)])
     return {
         'status': 'success',
         'data': projects_[(per_page*page_no)-per_page:(per_page*page_no)]
